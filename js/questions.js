@@ -1,9 +1,9 @@
-// creating an array and passing the number, questions, options, and answers
+// creating an array and passing the number, questions, options, and classifications
 let questions = [
     {
     numb: 1,
     question: "What does HTML stand for?",
-    answer: "Hyper Text Markup Language",
+    classification: "A",
     options: [
       "Hyper Text Preprocessor",
       "Hyper Text Markup Language",
@@ -14,7 +14,7 @@ let questions = [
     {
     numb: 2,
     question: "What does CSS stand for?",
-    answer: "Cascading Style Sheet",
+    classification: "A",
     options: [
       "Common Style Sheet",
       "Colorful Style Sheet",
@@ -25,7 +25,7 @@ let questions = [
     {
     numb: 3,
     question: "What does PHP stand for?",
-    answer: "Hypertext Preprocessor",
+    classification: "B",
     options: [
       "Hypertext Preprocessor",
       "Hypertext Programming",
@@ -36,7 +36,7 @@ let questions = [
     {
     numb: 4,
     question: "What does SQL stand for?",
-    answer: "Structured Query Language",
+    classification: "C",
     options: [
       "Stylish Question Language",
       "Stylesheet Query Language",
@@ -47,7 +47,7 @@ let questions = [
     {
     numb: 5,
     question: "What does XML stand for?",
-    answer: "eXtensible Markup Language",
+    classification: "A",
     options: [
       "eXtensible Markup Language",
       "eXecutable Multiple Language",
@@ -61,7 +61,7 @@ let questions = [
   //   {
   //   numb: 6,
   //   question: "Your Question is Here",
-  //   answer: "Correct answer of the question is here",
+  //   classification: "Correct classification of the question is here",
   //   options: [
   //     "Option 1",
   //     "option 2",
