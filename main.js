@@ -2,45 +2,68 @@ const questionCount = questions.length;
 const userAnswers = [];
 let questionNumber = 0;
 
+let startFlag = 0;
+let quizFlag = 0;
+let resultFlag = 0;
+
 const quizWrap = document.querySelector(".quiz_wrap");
-//const textQuestion = document.querySelector(".text_ques");
-//const optQues = document.querySelector(".opt_ques");
 const btnStart = document.querySelector(".btn_start");
 const btnNext = document.querySelector(".btn_next");
+const btnResult = document.querySelector(".btn_result");
 const textError = document.querySelector(".text_error");
 
 const errorList = [
-    "Select something",
-    "Crazy I know"
+    "Please select one option first!!!",
+    "System failure"
 ];
 
 function optListHtml(optionListIndex, optValue, classification, questionIndex){
 
     let optCurrentId =`${optionListIndex}${classification}${questionIndex}`;
     return `<div class="radio_wrap">
-                <input type="radio" name="response" id="${optCurrentId}" value="${questionIndex}">
+                <input type="radio" name="response" id="${optCurrentId}" value="${optionListIndex}">
                 <label for="${optCurrentId}">${optValue}</label>
             </div>`;
 }
 
 btnNext.onclick = () =>{
-    if(questionNumber>0 && questionNumber<questionCount){
-        checkIfSubmissionOk();
+
+    if(questionNumber<questionCount-1){
+        startFlag=1;
+        quizFlag=1;
+        resultFlag=0;
+    }else{
+        startFlag=1;
+        quizFlag=0;
+        resultFlag=1;
     }
-    
-    if(questionNumber>questionCount){
-        console.log(userAnswers);
+
+    if(checkIfSubmissionOk()){
+        clearAlert();
+        userAnswers[questionNumber] = checkIfSubmissionOk();
+        questionNumber++;
+        loadAppView();
+    }else{
+        createAlert(0); 
     }
 }
 
 btnStart.onclick = () =>{
-
-    if(questionNumber==0){
-        questionNumber++;
-        console.log(questionNumber);
-        questionsDisplayHandler(questionNumber);
-    }
+    startFlag=1;
+    quizFlag=1;
+    resultFlag=0;
+    loadAppView();
 }
+
+btnResult.onclick = () =>{
+    questionNumber=0;
+    startFlag=0;
+    quizFlag=0;
+    resultFlag=0;
+    console.log(userAnswers);
+    loadAppView();
+}
+
 
 function checkIfSubmissionOk(){
     const optionBtns = document.querySelectorAll('input[name="response"]');
@@ -53,16 +76,7 @@ function checkIfSubmissionOk(){
         }
     }
 
-    if(selectedOption){
-        clearAlert();
-        questionNumber++;
-        console.log(questionNumber);
-        userAnswers[questionNumber] = selectedOption;
-        console.log(userAnswers);
-        questionsDisplayHandler(questionNumber);
-    }else{
-        createAlert(0); 
-    }
+    return selectedOption
 }
 
 function createAlert(errIndex){
@@ -83,31 +97,55 @@ function displayOpeningTab(){
 }
 
 function displayCurrentQuestion(indexQuestion){
-    let realIndex = indexQuestion-1;
+    let realIndex = indexQuestion;
     const textQuestion = document.querySelector(".text_ques");
     const optQues = document.querySelector(".opt_ques");
 
-    let textQuestionContent = `<span> Question Number ${realIndex+1}</span>`
+    let textQuestionContent = `<span> Question Number ${realIndex+1}</span><p>${questions[realIndex].question}</p>`
     let classQuestion = questions[realIndex].classification;
     let optionQuestionList = questions[realIndex].options;
-    
-    textQuestion.innerHTML = textQuestionContent;
     let optListHtmlText = "";
     for(let i =0; i<optionQuestionList.length; i++){
         optListHtmlText+=optListHtml(i, optionQuestionList[i], classQuestion, realIndex);
     }
+
+    textQuestion.innerHTML = textQuestionContent;
     optQues.innerHTML = optListHtmlText;
-
-
 }
 
-function questionsDisplayHandler(indexQuestion){
-    indexQuestion==0 ? displayOpeningTab(): displayCurrentQuestion(indexQuestion);
-}
+function displayClosingTab(){
+    const textQuestion = document.querySelector(".text_ques");
+    const optQues = document.querySelector(".opt_ques");
 
+    let textQuestionContent = `<span> Everything Has been concluded. </span>`
+
+    textQuestion.innerHTML = textQuestionContent;
+    optQues.innerHTML = "";
+}
 
 function loadAppView(){
-    questionsDisplayHandler(questionNumber);
+
+    if(startFlag==0){
+        btnStart.style.display = "block";
+        btnNext.style.display = "none";
+        btnResult.style.display = "none";
+        displayOpeningTab();
+    }
+
+    if(quizFlag==1){
+        btnStart.style.display = "none";
+        btnNext.style.display = "block";
+        btnResult.style.display = "none";
+        displayCurrentQuestion(questionNumber);
+    }
+
+    if(resultFlag==1){
+        btnStart.style.display = "none";
+        btnNext.style.display = "none";
+        btnResult.style.display = "block";
+        displayClosingTab();
+    }
+    
 }
 
 document.addEventListener('DOMContentLoaded', loadAppView());
