@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+*{
+    font-size: 10px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.btn{
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover{
+  background-color: #008CBA;
+  color: white;
+}    
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnTyp</title>
+</head>
+<body>
+    
+<div class="quiz_wrap">
+    <header></header>
+    <section>
+        <div class="text_ques">
+            <span> Question 1</span>
+            <p>What does XML stand for?</p>
+        </div>
+        <div class="opt_ques">
+            <div class="radio_wrap">
+                <input type="radio" name="response" id="optCurrentId1" value="1">
+                <label for="optCurrentId1">Pick 1</label>
+            </div>
+            <div class="radio_wrap">
+                <input type="radio" name="response" id="optCurrentId2" value="2">
+                <label for="optCurrentId2">Pick 2</label>
+            </div>
+            <div class="radio_wrap">
+                <input type="radio" name="response" id="optCurrentId3" value="3">
+                <label for="optCurrentId3">Pick 3</label>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <button id="btn_start" class="btn btn_start">Start Quiz</button>
+        <button id="btn_next" class="btn btn_next">Save Answer</button>
+        <button id="btn_result" class="btn  btn_result">Get Results</button>
+        <p class="text_error"></p>
+    </footer>
+</div>
+
+</body>
+</html>
