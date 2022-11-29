@@ -38,8 +38,21 @@ body {
   .pad_all{
     padding: 2rem;
   }
+
+  .marg_top{
+    margin-top: 2rem;
+  }
   
   .quiz_wrap{
     background: #e5e5e5;
     border: 5px solid gray;
+    min-width: 80%;
+  }
+
+  .text_error_wrap{
+    padding: 2px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #8a0000;
+    text-align: center;
   }
