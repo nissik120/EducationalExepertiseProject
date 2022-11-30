@@ -26,6 +26,29 @@ function optListHtml(optionListIndex, optValue, classification, questionIndex){
             </div>`;
 }
 
+function computeResult(answerArray){
+    const mode = {};
+    let max = 0, count = 0;
+
+    for (let arrayIndex = 0; arrayIndex < answerArray.length; arrayIndex++) {
+        const item = answerArray[arrayIndex];
+
+        if(mode[item]){
+            mode[item]++;
+        }else{
+            mode[item] = 1;
+        }
+        
+        if(count < mode[item]){
+            max = item;
+            count = mode[item];
+        }
+    }
+
+    return max;
+
+}
+
 btnNext.onclick = () =>{
 
     if(questionNumber<questionCount-1){
@@ -61,6 +84,7 @@ btnResult.onclick = () =>{
     quizFlag=0;
     resultFlag=0;
     console.log(userAnswers);
+    console.log(computeResult(userAnswers));
     loadAppView();
 }
 

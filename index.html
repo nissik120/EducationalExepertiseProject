@@ -4,29 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LearnTyp</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Login | LearnTyp</title>
 </head>
 <body>
     
-<div class="quiz_wrap">
-    <header></header>
-    <section class="pad_all">
-        <div class="text_ques"></div>
-        <div class="opt_ques"></div>
+<div class="wrapper">
+    <header class="pad_horz">
+        <h1>Welcome to LearnTyp</h1>
+    </header>
+    <section class="pad_horz">
+      
+      <p>We are still building for you.
+        <br> Try out our service.
+      </p>
+      
+      <div id="login-form">
+        <div class="pad_vert">
+          <label for="username">Username</label><br>
+          <input required class="input_field" type="text" name="username" id="username" class="login-form-field" placeholder="Username">
+        </div>
+        
+        <div class="pad_vert">
+          <button class="button" id="login-form-submit">Guest Login</button>
+        </div>
+      
+      </div>
+
+      <div class="text_error_wrap marg_top" id="login-error-msg-holder">
+        <p class="text_login_error">ERROR: Invalid / Existing username!!!</p>
+      </div>
+
     </section>
     <footer class="pad_all">
-        <button id="btn_start" class="button btn_start">Start Quiz</button>
-        <button id="btn_next" class="button btn_next">Save Answer</button>
-        <button id="btn_result" class="button btn_result">Get Results</button>
-        <div class="text_error_wrap marg_top">
-            <p class="text_error"></p>
-        </div>
     </footer>
 </div>
 
-<script src="js/questions.js"></script>
-<script src="main.js"></script>
+<script>
+
+  let currentUsername = document.getElementById('username');
+  let loginBtn = document.getElementById('login-form-submit');
+  let errLoginMsg = document.getElementById('login-error-msg-holder');
+
+  function storeCurrentUser() {
+    localStorage.setItem('username', currentUsername.value);
+  }
+
+  function checkIfUserExists() {
+    let storedName = localStorage.getItem('username');
+    let userName = document.getElementById('username');
+
+    if(userName.value == storedName || userName.value =="") {
+      errLoginMsg.style.display = "block";
+    }else {
+      errLoginMsg.style.display = "none";
+      window.location = "dashboard.html";
+      storeCurrentUser();
+    }
+  }
+
+
+  loginBtn.onclick = ()=>{
+    checkIfUserExists();
+  };
+
+</script>
 
 </body>
 </html>

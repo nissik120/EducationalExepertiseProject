@@ -39,11 +39,23 @@ body {
     padding: 2rem;
   }
 
+  .pad_all{
+    padding: 2rem;
+  }
+
+  .pad_vert{
+    padding-block: 1rem;
+  }
+
+  .pad_horz{
+    padding-inline: 2rem;
+  }
+
   .marg_top{
     margin-top: 2rem;
   }
   
-  .quiz_wrap{
+  .wrapper, .quiz_wrap{
     background: #e5e5e5;
     border: 5px solid gray;
     min-width: 80%;
@@ -56,3 +68,17 @@ body {
     color: #8a0000;
     text-align: center;
   }
+
+
+  .input_field{
+
+    border: 2px solid gray;
+    border-radius: 4px;
+    font-size: 1rem;
+    padding: 0.5rem;
+
+  }
+
+  #login-error-msg-holder{
+    display: none;
+  }  
