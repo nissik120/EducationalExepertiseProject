@@ -32,7 +32,7 @@ let questions = [
   },
   {
     numb: 4,
-    question: "When I have to remember a list of items, I remember them best if I:"    ",
+    question: "When I have to remember a list of items, I remember them best if I:",
     classification: "A",
     options: [
       "Write them down",
