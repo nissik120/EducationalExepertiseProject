@@ -18,9 +18,9 @@ const errorList = [
 ];
 
 const learnTypeList = [
-    "Visual",
-    "Auditory",
-    "Kinesthetic",
+    "Visual Type",
+    "Auditory Type",
+    "Kinesthetic Type",
 ];
 
 function optListHtml(optionListIndex, optValue, classification, questionIndex){
@@ -92,8 +92,7 @@ btnResult.onclick = () =>{
     console.log(userAnswers);
     console.log(computeResult(userAnswers));
     window.localStorage.removeItem("username");
-    window.location = "index.html"
-    //loadAppView();
+    window.location = "index.html";
 }
 
 
@@ -158,8 +157,7 @@ function displayClosingTab(){
 
     let userTypeId = computeResult(userAnswers);
 
-    let textQuestionContent = `<h1>Hi ${storedName}</h1>
-    <span> Based on our your answers, you are</span>
+    let textQuestionContent = `<span> Based on our your answers, you are the</span>
     <h2>${learnTypeList[userTypeId]}</h2>`
 
     textQuestion.innerHTML = textQuestionContent;

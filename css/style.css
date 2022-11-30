@@ -1,84 +1,90 @@
+*{
+  font-family: MonoLisa, Menlo, Monaco, "Courier New", monospace;
+}
+
 body {
-    background-color: #e5e5f7;
-    opacity: 1;
-    background-image: linear-gradient(45deg, #e5e5e5 50%, #e5e5f7 50%);
-    background-size: 10px 10px;
-    padding: 0 24px;
-    margin: 0;
-    height: 100vh;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: #e5e5f7;
+  opacity: 1;
+  background-image: linear-gradient(45deg, #e5e5d5 50%, #e5e5f7 50%);
+  background-size: 10px 10px;
+  padding: 0 24px;
+  margin: 0;
+  height: 100vh;
+  color: #2e2e2e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
    
-  }
+}
   
-  span{
-    font-size: 1.4rem;
-  }
-  
-  .button{
-    background-color: white;
-    color: black;
-    border: 2px solid #4CAF50;
-    padding: 0.8rem 1.6rem;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-  }
-  .button:hover {
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  .pad_all{
-    padding: 2rem;
-  }
+span{
+  font-size: 1.4rem;
+}
 
-  .pad_all{
-    padding: 2rem;
-  }
+.button{
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+  padding: 0.8rem 1.6rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
 
-  .pad_vert{
-    padding-block: 1rem;
-  }
+.pad_all{
+  padding: 2rem;
+}
 
-  .pad_horz{
-    padding-inline: 2rem;
-  }
+.pad_all{
+  padding: 2rem;
+}
 
-  .marg_top{
-    margin-top: 2rem;
-  }
-  
-  .wrapper, .quiz_wrap{
-    background: #e5e5e5;
-    border: 5px solid gray;
-    min-width: 80%;
-  }
+.pad_vert{
+  padding-block: 1rem;
+}
 
-  .text_error_wrap{
-    padding: 2px;
-    font-size: 12px;
-    font-weight: bold;
-    color: #8a0000;
-    text-align: center;
-  }
+.pad_horz{
+  padding-inline: 2rem;
+}
 
+.marg_top{
+  margin-top: 2rem;
+}
 
-  .input_field{
+.wrapper, .quiz_wrap{
 
-    border: 2px solid gray;
-    border-radius: 4px;
-    font-size: 1rem;
-    padding: 0.5rem;
+  background: #e5e5e5;
+  border: 5px solid gray;
+  min-width: 80%;
+  min-height: 60%;
 
-  }
+}
 
-  #login-error-msg-holder{
-    display: none;
-  }  
+.text_error_wrap{
+  padding: 2px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #8a0000;
+  text-align: center;
+}
+
+.input_field{
+
+  border: 2px solid gray;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  padding: 0.5rem 1rem;
+
+}
+
+#login-error-msg-holder{
+  display: none;
+}  
