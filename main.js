@@ -17,6 +17,12 @@ const errorList = [
     "System failure"
 ];
 
+const learnTypeList = [
+    "Visual",
+    "Auditory",
+    "Kinesthetic",
+];
+
 function optListHtml(optionListIndex, optValue, classification, questionIndex){
 
     let optCurrentId =`${optionListIndex}${classification}${questionIndex}`;
@@ -85,7 +91,9 @@ btnResult.onclick = () =>{
     resultFlag=0;
     console.log(userAnswers);
     console.log(computeResult(userAnswers));
-    loadAppView();
+    window.localStorage.removeItem("username");
+    window.location = "index.html"
+    //loadAppView();
 }
 
 
@@ -115,6 +123,11 @@ function displayOpeningTab(){
     const textQuestion = document.querySelector(".text_ques");
     const optQues = document.querySelector(".opt_ques");
 
+    const currHeader = document.getElementById('dash_header');
+
+    let storedName = localStorage.getItem('username')??"";
+    currHeader.innerHTML = `<h1>Hi ${storedName}</h1>`;
+
     let textQuestionContent = `<span> Press Next To get Started. </span>`
 
     textQuestion.innerHTML = textQuestionContent;
@@ -141,7 +154,13 @@ function displayClosingTab(){
     const textQuestion = document.querySelector(".text_ques");
     const optQues = document.querySelector(".opt_ques");
 
-    let textQuestionContent = `<span> Everything Has been concluded. </span>`
+    let storedName = localStorage.getItem('username')??"";
+
+    let userTypeId = computeResult(userAnswers);
+
+    let textQuestionContent = `<h1>Hi ${storedName}</h1>
+    <span> Based on our your answers, you are</span>
+    <h2>${learnTypeList[userTypeId]}</h2>`
 
     textQuestion.innerHTML = textQuestionContent;
     optQues.innerHTML = "";
